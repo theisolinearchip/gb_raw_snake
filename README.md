@@ -1,4 +1,4 @@
-# gb_raw_snake
+# Game Boy Raw Snake
 A small raw snake game from Game Boy written in ASM.
 
 ![Snake 1](http://albertgonzalez.coffee/projects/raw_snake/img/snake_1_small.png) ![Snake 2](http://albertgonzalez.coffee/projects/raw_snake/img/snake_2_small.png) ![Snake 3](http://albertgonzalez.coffee/projects/raw_snake/img/snake_3_small.png)
