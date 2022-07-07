@@ -8,12 +8,12 @@ include "hardware.inc"
 _PLAYER_SPRITE_POS_Y				EQU		_OAMRAM
 _PLAYER_SPRITE_POS_X				EQU 	_PLAYER_SPRITE_POS_Y + 1
 _PLAYER_SPRITE_INDEX				EQU		_PLAYER_SPRITE_POS_X + 1
-_PLAYER_SPRITE_ATTR					EQU		_PLAYER_SPRITE_INDEX + 1
+_PLAYER_SPRITE_ATTR				EQU		_PLAYER_SPRITE_INDEX + 1
 
-_ITEM_SPRITE_POS_Y					EQU		_PLAYER_SPRITE_ATTR + 1
-_ITEM_SPRITE_POS_X					EQU 	_ITEM_SPRITE_POS_Y + 1
-_ITEM_SPRITE_INDEX					EQU		_ITEM_SPRITE_POS_X + 1
-_ITEM_SPRITE_ATTR					EQU		_ITEM_SPRITE_INDEX + 1
+_ITEM_SPRITE_POS_Y				EQU		_PLAYER_SPRITE_ATTR + 1
+_ITEM_SPRITE_POS_X				EQU 	_ITEM_SPRITE_POS_Y + 1
+_ITEM_SPRITE_INDEX				EQU		_ITEM_SPRITE_POS_X + 1
+_ITEM_SPRITE_ATTR				EQU		_ITEM_SPRITE_INDEX + 1
 
 _SCORE_DIGIT_1_SPRITE_POS_Y			EQU		_ITEM_SPRITE_ATTR + 1
 _SCORE_DIGIT_1_SPRITE_POS_X			EQU		_SCORE_DIGIT_1_SPRITE_POS_Y + 1
@@ -33,20 +33,20 @@ _SCORE_DIGIT_3_SPRITE_ATTR			EQU		_SCORE_DIGIT_3_SPRITE_INDEX + 1
 ; numeric constants
 ; -----------------
 
-_PLAYER_TILE_HORIZONTAL_VALUE		EQU		8
+_PLAYER_TILE_HORIZONTAL_VALUE			EQU		8
 _PLAYER_TILE_VERTICAL_VALUE			EQU		9
 _PLAYER_SPEED_DELAY_VALUE			EQU		9000
-_PLAYER_INITIAL_POS_Y 				EQU 	16 + (10 * 8)
-_PLAYER_INITIAL_POS_X 				EQU 	8 + (3 * 8)
-_PLAYER_INITIAL_SEGMENTS			EQU 	4 ; after setting the segments they're decremented, so the final viewed segments will be -1
+_PLAYER_INITIAL_POS_Y 				EQU 		16 + (10 * 8)
+_PLAYER_INITIAL_POS_X 				EQU 		8 + (3 * 8)
+_PLAYER_INITIAL_SEGMENTS			EQU 		4 ; after setting the segments they're decremented, so the final viewed segments will be -1
 
-_ITEM_TILE							EQU		10
-_ITEM_INITIAL_POS_Y					EQU 	16 + (5 * 8)
-_ITEM_INITIAL_POS_X					EQU 	8 + (10 * 8)
+_ITEM_TILE					EQU		10
+_ITEM_INITIAL_POS_Y				EQU 		16 + (5 * 8)
+_ITEM_INITIAL_POS_X				EQU 		8 + (10 * 8)
 
 _SEGMENTS_TTL_TOTAL 				EQU		32 * 16 + 19 ; the "right" part will be unused, indeed, maybe we can map this to a continuous segment...
-_BLANK_TILE							EQU 	0
-_SEGMENT_TILE 						EQU 	7
+_BLANK_TILE					EQU 		0
+_SEGMENT_TILE 					EQU 		7
 
 _TILE_NUMBERS_OFFSET				EQU		$10 ; tile with "0"
 _TILE_NUMBERS_OFFSET_MAX			EQU		$19 ; tile with "9"
@@ -54,24 +54,24 @@ _TILE_NUMBERS_OFFSET_MAX			EQU		$19 ; tile with "9"
 ; ram values
 ; ----------
 
-_JOYPAD_STATE						EQU 	_RAM
-_PLAYER_INDEX_SPRITE 				EQU 	_RAM + 1
-_PLAYER_DIR_Y						EQU		_RAM + 2
-_PLAYER_DIR_X						EQU 	_RAM + 3
-_PLAYER_POS_Y						EQU		_RAM + 4
-_PLAYER_POS_X						EQU 	_RAM + 5 
-_PLAYER_MIRRORED_Y					EQU		_RAM + 6 ; mirrored for sprites
-_PLAYER_MIRRORED_X					EQU 	_RAM + 7
+_JOYPAD_STATE					EQU 		_RAM
+_PLAYER_INDEX_SPRITE 				EQU 		_RAM + 1
+_PLAYER_DIR_Y					EQU		_RAM + 2
+_PLAYER_DIR_X					EQU 		_RAM + 3
+_PLAYER_POS_Y					EQU		_RAM + 4
+_PLAYER_POS_X					EQU 		_RAM + 5 
+_PLAYER_MIRRORED_Y				EQU		_RAM + 6 ; mirrored for sprites
+_PLAYER_MIRRORED_X				EQU 		_RAM + 7
 
-_ITEM_POS_Y							EQU		_RAM + 8
-_ITEM_POS_X							EQU 	_RAM + 9
-_ITEM_PICKED						EQU		_RAM + 10
+_ITEM_POS_Y					EQU		_RAM + 8
+_ITEM_POS_X					EQU 		_RAM + 9
+_ITEM_PICKED					EQU		_RAM + 10
 
-_PSEUDORANDOM_VAL					EQU		_RAM + 11 ; from FF04, Divider Register, updated on every joypad interrupt
-_SCORE_VAL							EQU		_RAM + 12
+_PSEUDORANDOM_VAL				EQU		_RAM + 11 ; from FF04, Divider Register, updated on every joypad interrupt
+_SCORE_VAL					EQU		_RAM + 12
 
-_PLAYER_SEGMENTS_COUNT				EQU 	_RAM + 13 ; limited to 255 segments (8 bits)
-_SEGMENTS_TTL 						EQU 	_RAM + 14 ; the rest of the ram, basically
+_PLAYER_SEGMENTS_COUNT				EQU 		_RAM + 13 ; limited to 255 segments (8 bits)
+_SEGMENTS_TTL 					EQU 		_RAM + 14 ; the rest of the ram, basically
 
 
 section "Joypad interrupt", ROM0[$60] ; joypad interrupt entry point (8 instr max)
